@@ -38,7 +38,9 @@ c. Add SAMTools into profile:
 3) EMBOSS
 a. Download:
    ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
+   
 b. Unzip and install:
+
    $ tar -xvf EMBOSS-6.6.0.tar.gz
    $ cd EMBOSS-6.6.0
    $ ./configure
