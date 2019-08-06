@@ -118,14 +118,14 @@ if the sequencing reads is SE, please use "Microbe-SE";
 if the sequencing reads is PE, please use "Microbe-PE".
 
 
-1) Microbe-SE usage:
+(1) Microbe-SE usage:
 
    $ cd Microbe-SE/
    
    $ sh MicrobeRun.sh ReadFileDir ResultFileDir     #ReadFileDir is the absolute director of SE reads file, ResultFileDir is the absolute director of result
    
 
-2) Microbe-PE usage:
+(2) Microbe-PE usage:
 
    $ cd Microbe-PE/
    
