@@ -1,8 +1,8 @@
 # PGMicroD
 a pandemic genome's microbe components and abundance detection tool based on NGS data
 
------------------------------------------------------------------------------------------------
-1、Installation
+-------------------------------Installation----------------------------------------------------------------
+
 1.1 Basic Environment
    Linux operation system with python3.x
 1.2 Third Party Tools 
