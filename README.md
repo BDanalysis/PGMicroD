@@ -11,7 +11,7 @@ a pandemic genome's microbe components and abundance detection tool based on NGS
    
 1.2 Third Party Tools 
 
-1) Bwa
+(1) Bwa
 
 a. Download: 
 
@@ -29,7 +29,7 @@ c. Add Bwa into profile
    
    $ source .bashrc
 
-2) SAMtools
+(2) SAMtools
 
 a. Download:
 
@@ -47,7 +47,7 @@ c. Add SAMTools into profile:
    
    $ source .bashrc
 
-3) EMBOSS
+(3) EMBOSS
 
 a. Download:
 
