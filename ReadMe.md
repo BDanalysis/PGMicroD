@@ -125,4 +125,10 @@ Result Analysis
 The result is composed of tow columns, the first column is microbe components, the second column is microbe abundance.
 
 
+-----------------------------------------------------------------------------------------------
+Demos Analysis
+
+The PE sequencing sample can be found in 'Microbe-PE/example';
+the SE sequencing sample can be found in 'Microbe-SE/example'.
+
 
