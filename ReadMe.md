@@ -7,9 +7,9 @@ Linux operation system with python3.x
 
 ##Third Party Tools 
 
-1.Bwa
+[Bwa]
 
-1.1. Download: 
+a. Download: 
 
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2/download ./
 
@@ -25,7 +25,7 @@ $ export Dir_Bwa/bwa-0.7.17:$PATH      #Dir_Bwa is the abosulte directory of Bwa
 
 $ source .bashrc
 
-2) SAMtools
+[SAMtools]
 
 a. Download:
 
@@ -43,7 +43,7 @@ $ export Dir_SAMtools/samtools-1.7:$PATH     #Dir_SAMtools is the abosulte direc
 
 $ source .bashrc
 
-3) EMBOSS
+[EMBOSS]
 
 a. Download:
 
@@ -94,7 +94,7 @@ $ export Dir_EMBOSS/EMBOSS-6.6.0:$PATH              #Dir_EMBOSS is the abosulte 
 $ source .bashrc
 
 
-1.3 Extra Python Library
+##Extra Python Library
 
 $ pip3 install pysam
 
@@ -105,7 +105,8 @@ $ pip3 install scipy
 
 
 -----------------------------------------------------------------------------------------------
-##Usage of software
+Usage of software
+
 if the sequencing reads is SE, please use "Microbe-SE";
 if the sequencing reads is PE, please use "Microbe-PE".
 
@@ -119,7 +120,8 @@ if the sequencing reads is PE, please use "Microbe-PE".
 
 
 -----------------------------------------------------------------------------------------------
-##Result Analysis
+Result Analysis
+
 The result is composed of tow columns, the first column is microbe components, the second column is microbe abundance.
 
 
