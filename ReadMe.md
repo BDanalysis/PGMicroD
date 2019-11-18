@@ -7,6 +7,7 @@ Linux operation system with python3.x
 
 1. Third Party Tools 
 
+
 1) Bwa
 
 a. Download: 
@@ -44,6 +45,7 @@ $ export Dir_SAMtools/samtools-1.7:$PATH     #Dir_SAMtools is the abosulte direc
 $ source .bashrc
 
 3) EMBOSS
+
 a. Download:
 
 ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
