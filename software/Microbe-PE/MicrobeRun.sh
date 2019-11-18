@@ -7,6 +7,17 @@ echo "command formate: sh MicrobeRun.sh FastaDir Read1Dir Read2Dir ResultDir"
 exit
 fi
 
+
+mkdir ./input
+mkdir ./output
+
+mkdir ./bin/Data/HVRFile
+mkdir ./bin/Data/PredictData
+mkdir ./bin/Data/Ref_Align
+mkdir ./bin/Data/Result
+
+
+
 cp $1 ./input/TotalRef.fasta
 cp $2 ./input/example.reads1.fq
 cp $3 ./input/example.reads2.fq
@@ -36,7 +47,7 @@ fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ATGGCTGTCGTCAGC
 cd bin
 sh ProgramRun.sh
 
-#将结果移动到output
+#move result file to destination
 cd ../
 cp ./bin/Data/Result/RefFre.txt ./output/RefResult.txt
 cp ./output/RefResult.txt $4
@@ -45,17 +56,12 @@ cp ./output/RefResult.txt $4
 
 
 #删除中间结果文件
-rm -rf ./input/TotalRef.fasta
-rm -rf ./input/example.reads1.fq
-rm -rf ./input/example.reads2.fq
-rm -rf ./output/RefResult.txt
-
-rm -rf ./bin/Data/HVRFile/*
-rm -rf ./bin/Data/PredictData/*
-rm -rf ./bin/Data/Ref_Align/*
-rm -rf ./bin/Data/Result/*
-rm -rf ./bin/Data/example.reads1.fq
-rm -rf ./bin/Data/example.reads2.fq
+rm -rf ./input
+rm -rf ./output
+rm -rf ./bin/Data/HVRFile
+rm -rf ./bin/Data/PredictData
+rm -rf ./bin/Data/Ref_Align
+rm -rf ./bin/Data/Result
 
 
 
