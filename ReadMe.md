@@ -7,9 +7,9 @@ Linux operation system with python3.x
 
 ##Third Party Tools 
 
-1) Bwa
+1.Bwa
 
-a. Download: 
+1.1. Download: 
 
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2/download ./
 
