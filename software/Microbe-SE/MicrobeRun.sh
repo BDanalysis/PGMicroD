@@ -2,19 +2,34 @@ date +'start time=%Y-%m-%d %k:%M:%S.%N'
 echo "================================================================================"
 
 
-if [ $# -ne 3 ];then
-echo "command formate: sh MicrobeRun.sh FastaDir ReadDir ResultDir"
+if [ $# -ne 4 ];then
+echo "command formate: sh MicrobeRun.sh FastaDir Read1Dir Read2Dir ResultDir"
 exit
 fi
 
 
+mkdir ./input
+mkdir ./output
+
+mkdir ./bin/Data/HVRFile
+mkdir ./bin/Data/PredictData
+mkdir ./bin/Data/Ref_Align
+mkdir ./bin/Data/Result
+
+
+
 cp $1 ./input/TotalRef.fasta
-cp $2 ./input/example.reads.fq
+cp $2 ./input/example.reads1.fq
+cp $3 ./input/example.reads2.fq
+
+
 
 
 #将input的fasta和fastq移动到工作目录
 cp ./input/TotalRef.fasta ./bin/Data/Ref_Align/TotalRef1.fasta
-cp ./input/example.reads.fq ./bin/Data/example.reads.fq
+cp ./input/example.reads1.fq ./bin/Data/example.reads1.fq
+cp ./input/example.reads2.fq ./bin/Data/example.reads2.fq
+
 
 
 #获取HVR
@@ -27,28 +42,26 @@ fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'GYAACGAGCGCAACC
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ATGGCTGTCGTCAGCT' -outfile ./bin/Data/HVRFile/V8.fuzznuc
 
 
+
 #运行程序
 cd bin
 sh ProgramRun.sh
 
-#将结果移动到output
+#move result file to destination
 cd ../
 cp ./bin/Data/Result/RefFre.txt ./output/RefResult.txt
-cp ./output/RefResult.txt $3
+cp ./output/RefResult.txt $4
+
+
 
 
 #删除中间结果文件
-rm -rf ./input/TotalRef.fasta
-rm -rf ./input/example.reads.fq
-rm -rf ./output/RefResult.txt
-
-rm -rf ./bin/Data/HVRFile/*
-rm -rf ./bin/Data/PredictData/*
-rm -rf ./bin/Data/Ref_Align/*
-rm -rf ./bin/Data/Result/*
-rm -rf ./bin/Data/example.reads.fq
-
-
+rm -rf ./input
+rm -rf ./output
+rm -rf ./bin/Data/HVRFile
+rm -rf ./bin/Data/PredictData
+rm -rf ./bin/Data/Ref_Align
+rm -rf ./bin/Data/Result
 
 
 
