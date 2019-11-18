@@ -128,7 +128,8 @@ The result is composed of tow columns, the first column is microbe components, t
 -----------------------------------------------------------------------------------------------
 Demos Analysis
 
-The PE sequencing sample can be found in 'Microbe-PE/example';
-the SE sequencing sample can be found in 'Microbe-SE/example'.
+The PE sequencing sample can be found in 'software/Microbe-PE/example';
+
+the SE sequencing sample can be found in 'software/Microbe-SE/example'.
 
 
