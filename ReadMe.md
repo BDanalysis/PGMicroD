@@ -6,20 +6,26 @@
 
 1.2 Third Party Tools 
 1) Bwa
+
 a. Download: 
    wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2/download ./
+
 b. Unzip the file:
    $ tar -xvf bwa-0.7.17.tar.bz2
+
 c. Add Bwa into profile
    $ vim .bashrc
    $ export Dir_Bwa/bwa-0.7.17:$PATH      #Dir_Bwa is the abosulte directory of Bwa 
    $ source .bashrc
 
 2) SAMtools
+
 a. Download:
    wget https://sourceforge.net/projects/samtools/files/samtools/1.7/samtools-1.7.tar.bz2/download ./
+
 b. Unzip the file:
    $ tar -xvf samtools-1.7.tar.bz2
+
 c. Add SAMTools into profile:
    $ vim .bashrc
    $ export Dir_SAMtools/samtools-1.7:$PATH     #Dir_SAMtools is the abosulte directory of SAMTools
