@@ -1,10 +1,13 @@
 -----------------------------------------------------------------------------------------------
 Installation
+
 #####################
 1. Basic Environment
+
 Linux operation system with python3.x
 
 1. Third Party Tools 
+
 1) Bwa
 
 a. Download: 
@@ -34,6 +37,7 @@ c. Add SAMTools into profile:
 3) EMBOSS
 a. Download:
    ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
+   
 b. Unzip and install:
    $ tar -xvf EMBOSS-6.6.0.tar.gz
    $ cd EMBOSS-6.6.0
@@ -44,6 +48,7 @@ b. Unzip and install:
      $ make
    ) 
    $ sudo make install
+   
 c. Check whether installation is successful:
    $ wossname -auto |more
    (Attention:
@@ -52,10 +57,12 @@ c. Check whether installation is successful:
     file: No such file or directory”, you should input the following command:
     $ sudo /sbin/ldconfig    
     )
+    
 d. Add EMBOSS into profile:
    $ vim .bashrc
    $ export Dir_EMBOSS/EMBOSS-6.6.0:$PATH              #Dir_EMBOSS is the abosulte directory of EMBOSS
    $ source .bashrc
+
 
 1.3 Extra Python Library
    $ pip3 install pysam
