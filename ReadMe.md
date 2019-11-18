@@ -111,12 +111,20 @@ if the sequencing reads is SE, please use "Microbe-SE";
 if the sequencing reads is PE, please use "Microbe-PE".
 
 1) Microbe-SE usage:
-   $ cd Microbe-SE/
-   $ sh MicrobeRun.sh FastaDir ReadFileDir ResultFileDir     #ReadFileDir is the absolute director of SE reads file, ResultFileDir is the absolute director of result
+
+$ cd Microbe-SE/
+
+$ sh MicrobeRun.sh FastaDir ReadFileDir ResultFileDir
+
+#ReadFileDir is the absolute director of SE reads file, ResultFileDir is the absolute director of result
 
 2) Microbe-PE usage:
-   $ cd Microbe-PE/
-   $ sh MicrobeRun.sh FastaDir ReadFile1Dir ReadFile2Dir ResultFileDir     #ReadFile1Dir and ReadFile2Dir is the absolute director of PE1 and PE2 reads file in PE respecitvely
+
+$ cd Microbe-PE/
+
+$ sh MicrobeRun.sh FastaDir ReadFile1Dir ReadFile2Dir ResultFileDir
+
+#ReadFile1Dir and ReadFile2Dir is the absolute director of PE1 and PE2 reads file in PE respecitvely
 
 
 -----------------------------------------------------------------------------------------------
