@@ -1,12 +1,11 @@
 -----------------------------------------------------------------------------------------------
 Installation
 
-#Basic Environment
+##Basic Environment
 
 Linux operation system with python3.x
 
-1. Third Party Tools 
-
+##Third Party Tools 
 
 1) Bwa
 
@@ -106,7 +105,7 @@ $ pip3 install scipy
 
 
 -----------------------------------------------------------------------------------------------
-2、Usage of software
+##Usage of software
 if the sequencing reads is SE, please use "Microbe-SE";
 if the sequencing reads is PE, please use "Microbe-PE".
 
@@ -120,7 +119,7 @@ if the sequencing reads is PE, please use "Microbe-PE".
 
 
 -----------------------------------------------------------------------------------------------
-3、 Result Analysis
+##Result Analysis
 The result is composed of tow columns, the first column is microbe components, the second column is microbe abundance.
 
 
