@@ -43,6 +43,24 @@ fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ATGGCTGTCGTCAGC
 
 
 
+
+
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'TGCTGCCTCCCGTAGGAGT' -outfile ./bin/Data/HVRFile/V2_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ATTACCGCGGCTGCTGG' -outfile ./bin/Data/HVRFile/V3_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'TACNVGGGTATCTAATCC' -outfile ./bin/Data/HVRFile/V4_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'CCGTCAATTCCTTTGAGTTT' -outfile ./bin/Data/HVRFile/V5_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ACATTTCACAACACGAGCTGACGA' -outfile ./bin/Data/HVRFile/V6_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'GTAGCRCGTGTGTMGCCC' -outfile ./bin/Data/HVRFile/V7_1.fuzznuc
+fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ACGGGCGGTGTGTAC' -outfile ./bin/Data/HVRFile/V8_1.fuzznuc
+
+
+
+
+
+
+
+
+
 #运行程序
 cd bin
 sh ProgramRun.sh
