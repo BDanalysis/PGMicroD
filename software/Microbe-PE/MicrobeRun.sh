@@ -25,14 +25,14 @@ cp $3 ./input/example.reads2.fq
 
 
 
-#将input的fasta和fastq移动到工作目录
+# move fasta and fastq file into workshop space
 cp ./input/TotalRef.fasta ./bin/Data/Ref_Align/TotalRef1.fasta
 cp ./input/example.reads1.fq ./bin/Data/example.reads1.fq
 cp ./input/example.reads2.fq ./bin/Data/example.reads2.fq
 
 
 
-#获取HVR
+#get HVR
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'AGYGGCGNACGGGTGAGTAA' -outfile ./bin/Data/HVRFile/V2.fuzznuc
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'CCTACGGGAGGCAGCAG' -outfile ./bin/Data/HVRFile/V3.fuzznuc
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'AYTGGGYDTAAAGNG' -outfile ./bin/Data/HVRFile/V4.fuzznuc
@@ -61,7 +61,6 @@ fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ACGGGCGGTGTGTAC
 
 
 
-#运行程序
 cd bin
 sh ProgramRun.sh
 
@@ -73,7 +72,7 @@ cp ./output/RefResult.txt $4
 
 
 
-#删除中间结果文件
+#delete the adundant files
 rm -rf ./input
 rm -rf ./output
 rm -rf ./bin/Data/HVRFile
