@@ -15,7 +15,7 @@ def ExtractRef():
     file_in.close()
 
 
-    # 将比对上的ref作为新ref库，存为TotalRef.fasta
+
     file=pysam.FastaFile('Data/Ref_Align/TotalRef1.fasta')
     file_out=open('Data/Ref_Align/TotalRef.fasta','w')
     for s in S:
