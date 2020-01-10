@@ -2,15 +2,15 @@ date +'start time=%Y-%m-%d %k:%M:%S.%N'
 echo "================================================================================"
 
 
-if [ $# -ne 4 ];then
-echo "command formate: sh MicrobeRun.sh FastaDir Read1Dir Read2Dir ResultDir"
+if [ $# -ne 3 ];then
+echo "command formate: sh MicrobeRun.sh FastaDir ReadDir ResultDir"
 exit
 fi
 
 
 mkdir ./input
 mkdir ./output
-
+mkdir ./bin/Data
 mkdir ./bin/Data/HVRFile
 mkdir ./bin/Data/PredictData
 mkdir ./bin/Data/Ref_Align
@@ -19,20 +19,15 @@ mkdir ./bin/Data/Result
 
 
 cp $1 ./input/TotalRef.fasta
-cp $2 ./input/example.reads1.fq
-cp $3 ./input/example.reads2.fq
-
-
+cp $2 ./input/example.reads.fq
 
 
 # move fasta and fastq file into workshop space
 cp ./input/TotalRef.fasta ./bin/Data/Ref_Align/TotalRef1.fasta
-cp ./input/example.reads1.fq ./bin/Data/example.reads1.fq
-cp ./input/example.reads2.fq ./bin/Data/example.reads2.fq
+cp ./input/example.reads.fq ./bin/Data/example.reads.fq
 
 
 
-#get HVR
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'AGYGGCGNACGGGTGAGTAA' -outfile ./bin/Data/HVRFile/V2.fuzznuc
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'CCTACGGGAGGCAGCAG' -outfile ./bin/Data/HVRFile/V3.fuzznuc
 fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'AYTGGGYDTAAAGNG' -outfile ./bin/Data/HVRFile/V4.fuzznuc
@@ -59,21 +54,19 @@ fuzznuc -sequence ./bin/Data/Ref_Align/TotalRef1.fasta -pattern 'ACGGGCGGTGTGTAC
 cd bin
 sh ProgramRun.sh
 
-#move result file to destination
+
 cd ../
 cp ./bin/Data/Result/RefFre.txt ./output/RefResult.txt
-cp ./output/RefResult.txt $4
+cp ./output/RefResult.txt $3
 
 
-
-
-#delete the redundant files
 rm -rf ./input
 rm -rf ./output
 rm -rf ./bin/Data/HVRFile
 rm -rf ./bin/Data/PredictData
 rm -rf ./bin/Data/Ref_Align
 rm -rf ./bin/Data/Result
+rm -rf ./bin/Data
 
 
 
