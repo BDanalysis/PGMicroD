@@ -1,10 +1,10 @@
 # coding:utf-8
 
-#合并两种比对结果
+
 def Comebine_Sam():
     file_out=open('Data/Ref_Align/pre_Density.sam','w')
 
-    file_in1=open('Data/Ref_Align/example.reads.sam','r') #第一次比对结果
+    file_in1=open('Data/Ref_Align/example.reads.sam','r') 
     for line1 in file_in1:
         file_out.write(line1)
     file_in1.close()
