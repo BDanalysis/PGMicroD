@@ -5,22 +5,11 @@ import pysam
 
 
 
-'''
-@功能：计算ref的7个属性
-@日期：2018-11-15
-'''
-
-
-'''
-功能：将CIGAR转为数值和字符组合
-参数：CIGAR字符串
-返回：数字字符列表
-'''
 def CigerTrans(CIGAR):
     l = []
 
-    num = ''  # 存放数字
-    flag = True  # 上次是数字
+    num = ''  
+    flag = True 
     for x in CIGAR:
         if x >= '0' and x <= '9':
             num += x
@@ -38,13 +27,8 @@ def CigerTrans(CIGAR):
 
 
 
-'''
-功能： 统计一个物种下每个位点的read数量
-参数： 物种的号refNo
-返回： 覆盖数量列表
-'''
 def CoverageSpecial(refNo):
-    ref = ''  # 记录refNo的序列
+    ref = '' 
     file = open('Data/Ref_Align/TotalRef.fasta', 'r')
     line = file.readline()
     while line != '':
@@ -58,9 +42,9 @@ def CoverageSpecial(refNo):
         line = file.readline()
     file.close()
 
-    Cov = [0] * len(ref)  #ref的位点数，即ref长度, 初始化为0
+    Cov = [0] * len(ref)  
 
-    #根据 ref_new号.sam 计算每个位点的read数量
+    
     for i in range(len(Cov)):
         file_bam = pysam.AlignmentFile('Data/Ref_Align/example.reads.bam','rb')
         for r in file_bam.fetch(refNo,i,i+1):
@@ -73,14 +57,8 @@ def CoverageSpecial(refNo):
 
 
 
-
-'''
-功能： 计算物种所有位点的覆盖度
-参数： 所有ref的覆盖量表Coverage
-返回： 无
-'''
 def RefCov():
-    #file_gamma = open('Data/Result/RefGamma.txt','w') #参数文件
+    
     file_cov = open('Data/Result/RefCoverage.txt','w')
 
     file_noapper = open('Data/Result/NoApperRef.txt','w')
@@ -91,13 +69,11 @@ def RefCov():
 
         cov = CoverageSpecial(refno)
 
-        #检查cov分布，或者捕获异常
-        if sum(cov)==0: #该ref未出现
+        
+        if sum(cov)==0: 
             file_noapper.write(refno+'\n')
             continue
-        #arg = gamma.fit(cov)  #[a形状,loc,b尺度]
-
-        #file_gamma.write(refno+' '+str(arg[0])+' '+str(arg[2])+'\n')
+       
 
         file_cov.write(refno + ' ')
         for i in range(0,len(cov),1):
@@ -111,12 +87,6 @@ def RefCov():
 
 
 
-
-'''
-功能： 统计所有ref的gap得分值
-参数： 所有ref的覆盖列表Coverage
-返回： gap得分列表
-'''
 def RefGap():
 
     file_gapscore = open('Data/Result/GapScore.txt','w')
@@ -127,11 +97,11 @@ def RefGap():
         for k in range(1,len(cov.strip().split()),1):
             Coverage.append(eval(cov.strip().split()[k]))
 
-        Coverage.append(-100)  #添加结束标记，防止最后一个位点的read count为0时统计错误
-        gap = []  # 存放一个ref的所有gap的宽度
+        Coverage.append(-100) 
+        gap = []  
 
-        pre_position = True  # 前一个位点read count=0 记为True，否则记为False
-        noreadcount = 0  # gap宽度
+        pre_position = True  
+        noreadcount = 0  
         for i in range(len(Coverage)):
             if Coverage[i] == 0:
                 if pre_position == True:
@@ -146,13 +116,12 @@ def RefGap():
                     gap.append(noreadcount)
                 noreadcount = 0
 
-        #计算gap得分
+        
         gapscore = 0.0
         for k in range(len(gap)):
-            #gapscore += math.exp(gap[k])
+            
             if gap[k]!=0:
-                #gapscore += 1.0/gap[k]   #gap1
-                gapscore += gap[k]     #gap2
+                gapscore += gap[k]    
 
         if len(gap) != 0:
             gapscore = gapscore/len(gap)
@@ -166,10 +135,6 @@ def RefGap():
 
 
 
-
-'''
-计算ref的覆盖率RefCovRate.txt
-'''
 def Coverage():
     file_cov = open('Data/Result/RefCoverage.txt', 'r')
     file_out = open('Data/Result/RefCovRate.txt','w')
@@ -190,9 +155,6 @@ def Coverage():
 
 
 
-'''
-计算HVRScore
-'''
 def HVRScore():
     file_in = open('Data/Result/RefCoverage.txt','r')
     file_out = open('Data/Result/RefHVRScore.txt','w')
@@ -200,13 +162,13 @@ def HVRScore():
         linex = line.strip().split()
         file_out.write(linex[0]+' ')
 
-        cov = [] #记录ref的覆盖度
+        cov = [] 
         for j in range(1,len(linex),1):
             cov.append(eval(linex[j]))
 
 
         file_hvr = open('Data/Result/HVR.txt','r')
-        hvrlist = []  #记录该ref的HVR区域
+        hvrlist = []  
 
         for hvr in file_hvr:
             hvrx = hvr.strip().split()
@@ -221,11 +183,11 @@ def HVRScore():
         hvrscore = 0.0
         for k in range(0,len(hvrlist),2):
             gap = []
-            #计算hvrlist[k] ~ hvrlist[k+1]上的gap长度
+            
             Coverage = cov[hvrlist[k]-1 : hvrlist[k+1]]
-            Coverage.append(-100)  #做结束标记
-            pre_position = True  # 前一个位点read count=0 记为True，否则记为False
-            noreadcount = 0  # gap宽度
+            Coverage.append(-100)  
+            pre_position = True  
+            noreadcount = 0 
             for i in range(len(Coverage)):
                 if Coverage[i] == 0:
                     if pre_position == True:
@@ -241,7 +203,7 @@ def HVRScore():
                     noreadcount = 0
 
             hvrscore += float(sum(cov[hvrlist[k]-1:hvrlist[k+1]]))/sum(cov) * math.exp(-float(sum(gap))/(hvrlist[k+1]-hvrlist[k]+1))
-            #hvrscore += math.exp(-float(sum(gap))/(hvrlist[k+1]-hvrlist[k]+1))
+            
         file_out.write(str(hvrscore)+'\n')
     file_out.close()
     file_in.close()
@@ -252,17 +214,15 @@ def HVRScore():
 
 
 
-'''
-功能： 将ref的 频率、a、b、gapScore、标签 写入DataSet.txt, ref号 fre a b gapscore label
-'''
+
 def GetData():
-    # 数据写入文件
+    
     file_Data = open('Data/PredictData/DataSet.txt', 'w')
     file_covrate = open('Data/Result/RefCovRate.txt','r')
     file_hvrscore = open('Data/Result/RefHVRScore.txt','r')
 
 
-    #定义各种属性的字典
+    
     Ref_No=[]
     dic_gap={}
     dic_hvr={}
@@ -288,7 +248,7 @@ def GetData():
         dic_hvr[linex[0]]=eval(linex[1])
 
 
-    #写入DataSet文件
+    
     for k in Ref_No:
         if k in dic_gap.keys() and k in dic_hvr.keys() and k in dic_cov.keys():
             file_Data.write(str(k)+' '+str(dic_gap[k])+' '+str(dic_cov[k])+' '+str(dic_hvr[k])+' '+'\n')
@@ -304,8 +264,8 @@ def GetData():
 
 
 
-RefCov()   #计算物种的所有位点的覆盖度
-RefGap()   #求所有ref的gap得分
-Coverage()  #计算所有ref的覆盖率
-HVRScore()  #计算HVR指示度
-GetData()  #提取为SVM输入格式的数据
+RefCov()  
+RefGap()   
+Coverage()  
+HVRScore()  
+GetData()  
